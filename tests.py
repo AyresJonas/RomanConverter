@@ -1,4 +1,5 @@
 from decimal_to_roman import decimal_to_roman
+from roman_to_decimal import roman_to_decimal
 
 
 def run_decimal_to_roman_tests():
@@ -22,6 +23,29 @@ def run_decimal_to_roman_tests():
 
   _run_and_show_results(decimal_to_roman, tests_params)
 
+def run_roman_to_decimal_tests():
+  print('Roman to decimal tests:')
+
+  tests_params = [
+    ('XX', 20),
+    ('MMXIX', 2019),
+    ('L', 50),
+    ('DMXI', 'Invalid roman number'),
+    ('VV', 'Invalid roman number'),
+    ('XXXX', 'Invalid roman number'),
+    ('MMMM', 'Invalid roman number'),
+    ('XXXIX', 39),
+    ('IV', 4),
+    ('IX', 9),
+    ('XL', 40),
+    ('XC', 90),
+    ('CD', 400),
+    ('CM', 900),
+    ('P', 'Invalid roman character')
+  ]
+
+  _run_and_show_results(roman_to_decimal, tests_params)
+
 def _run_and_show_results(method, tests_params):
   for param, expected_result in tests_params:
     result = method(param)
@@ -30,6 +54,7 @@ def _run_and_show_results(method, tests_params):
 
 def run_tests():
   run_decimal_to_roman_tests()
+  run_roman_to_decimal_tests()
 
   print('\nAll tests passed!')
 
